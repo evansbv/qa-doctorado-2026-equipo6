@@ -26,7 +26,7 @@ Revisar los acuerdos de equipo. [Agreements](./AGREEMENTS.md)
 
 ## Instalación docker
 
-Requiere un entorno con docker instalado. [Instalación](https://docs.docker.com/engine/install)
+Requiere un entorno con docker instalado. [configuracion](./SUT_ENVIRONMENT.md)
 
 ### Instrucciones de ejecución del proyecto
 
