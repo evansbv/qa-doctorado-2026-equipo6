@@ -1,0 +1,6 @@
+Inicio smoke test
+----------------------------------------
+FAIL - POST /pet (SC-04 - Creación inválida (sin name))
+Todos los checks OK
+Logs detallados: evidence/week2/smoke_test_20260121_150338.log
+Archivos generados en: evidence/week2

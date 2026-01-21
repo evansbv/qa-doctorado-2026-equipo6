@@ -1,0 +1,43 @@
+SC-05 - Latencia básica en /store/inventory - mié 21 ene 2026 15:04:33 -04
+Repeticiones: 30
+----------------------------------------
+Repetición 1: GET /store/inventory ... OK (200) - Tiempo: 0.002501 s
+Repetición 2: GET /store/inventory ... OK (200) - Tiempo: 0.001936 s
+Repetición 3: GET /store/inventory ... OK (200) - Tiempo: 0.002044 s
+Repetición 4: GET /store/inventory ... OK (200) - Tiempo: 0.001800 s
+Repetición 5: GET /store/inventory ... OK (200) - Tiempo: 0.002194 s
+Repetición 6: GET /store/inventory ... OK (200) - Tiempo: 0.002440 s
+Repetición 7: GET /store/inventory ... OK (200) - Tiempo: 0.002154 s
+Repetición 8: GET /store/inventory ... OK (200) - Tiempo: 0.002441 s
+Repetición 9: GET /store/inventory ... OK (200) - Tiempo: 0.002736 s
+Repetición 10: GET /store/inventory ... OK (200) - Tiempo: 0.002258 s
+Repetición 11: GET /store/inventory ... OK (200) - Tiempo: 0.001878 s
+Repetición 12: GET /store/inventory ... OK (200) - Tiempo: 0.001998 s
+Repetición 13: GET /store/inventory ... OK (200) - Tiempo: 0.002222 s
+Repetición 14: GET /store/inventory ... OK (200) - Tiempo: 0.001852 s
+Repetición 15: GET /store/inventory ... OK (200) - Tiempo: 0.002258 s
+Repetición 16: GET /store/inventory ... OK (200) - Tiempo: 0.001884 s
+Repetición 17: GET /store/inventory ... OK (200) - Tiempo: 0.002250 s
+Repetición 18: GET /store/inventory ... OK (200) - Tiempo: 0.001851 s
+Repetición 19: GET /store/inventory ... OK (200) - Tiempo: 0.001989 s
+Repetición 20: GET /store/inventory ... OK (200) - Tiempo: 0.001734 s
+Repetición 21: GET /store/inventory ... OK (200) - Tiempo: 0.001740 s
+Repetición 22: GET /store/inventory ... OK (200) - Tiempo: 0.002118 s
+Repetición 23: GET /store/inventory ... OK (200) - Tiempo: 0.002094 s
+Repetición 24: GET /store/inventory ... OK (200) - Tiempo: 0.001718 s
+Repetición 25: GET /store/inventory ... OK (200) - Tiempo: 0.001996 s
+Repetición 26: GET /store/inventory ... OK (200) - Tiempo: 0.002429 s
+Repetición 27: GET /store/inventory ... OK (200) - Tiempo: 0.002030 s
+Repetición 28: GET /store/inventory ... OK (200) - Tiempo: 0.001856 s
+Repetición 29: GET /store/inventory ... OK (200) - Tiempo: 0.002020 s
+Repetición 30: GET /store/inventory ... OK (200) - Tiempo: 0.002134 s
+
+Cálculo de métricas (min, max, avg, p95)...
+Min: 0.001718 s
+Max: 0.002736 s
+Avg: 0.00208517 s
+P95: 0.002441 s
+→ Resultado global: OK
+CSV generado: evidence/week2/sc-05_latency_20260121_150433.csv
+Resumen: evidence/week2/sc-05_latency_summary_20260121_150433.txt
+SC-05 FINALIZADO - mié 21 ene 2026 15:04:33 -04

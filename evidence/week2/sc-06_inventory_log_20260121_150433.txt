@@ -1,0 +1,7 @@
+SC-06 - Validación de forma en /store/inventory - mié 21 ene 2026 15:04:33 -04
+----------------------------------------
+Código HTTP: 200
+→ OK: Forma de datos válida
+Verificando valores numéricos >=0...
+Todos los valores son numéricos >=0
+SC-06 FINALIZADO - mié 21 ene 2026 15:04:33 -04

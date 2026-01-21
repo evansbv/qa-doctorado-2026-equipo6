@@ -1,0 +1,11 @@
+Smoke Test - mié 21 ene 2026 15:03:38 -04
+Base URL: http://localhost:8080/api/v3
+----------------------------------------
+[SC-01 - Creación válida] POST /pet ... OK (200)
+[SC-04 - Creación inválida (sin name)] POST /pet ... FAIL (200) - esperado 400\|405
+[SC-02 - Get pet por ID (ejemplo ID 1)] GET /pet/1 ... OK (200)
+[SC-03 - Update pet] PUT /pet ... OK (200)
+[FindByStatus available] GET /pet/findByStatus?status=available ... OK (200)
+[OpenAPI spec] GET /openapi.json ... OK (200)
+
+Smoke Test FINALIZADO - mié 21 ene 2026 15:03:39 -04

@@ -1,0 +1,17 @@
+SC-01 - Creación exitosa de mascota - mié 21 ene 2026 15:04:33 -04
+----------------------------------------
+→ POST /pet
+Body enviado:
+{
+  "id": 1000001,
+  "name": "Firulais-20260121_150433",
+  "status": "available",
+  "category": {"id": 1, "name": "perros"},
+  "tags": [{"id": 1, "name": "amigable"}]
+}
+
+Código HTTP: 200
+Respuesta guardada en: evidence/week2/sc-01_create_pet_response_20260121_150433.json
+→ OK: Mascota creada correctamente
+ID generado/devuelto: 1000001
+SC-01 FINALIZADO - mié 21 ene 2026 15:04:33 -04
