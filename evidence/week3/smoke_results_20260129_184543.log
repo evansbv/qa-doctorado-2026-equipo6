@@ -1,0 +1,10 @@
+Smoke Tests para Disponibilidad (R01 - SC-01) - Fecha: jue 29 ene 2026 18:45:43 -04
+Endpoints probados:
+- http://localhost:8080/api/v3/pet/findByStatus?status=available: HTTP 200
+  OK: Código < 500
+- http://localhost:8080/api/v3/store/inventory: HTTP 200
+  OK: Código < 500
+- http://localhost:8080/api/v3/user/login?username=test&password=test: HTTP 200
+  OK: Código < 500
+
+Resultado global: OK (100% disponible)

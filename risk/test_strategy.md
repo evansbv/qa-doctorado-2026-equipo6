@@ -1,51 +1,46 @@
 # Estrategia de Pruebas Basada en Riesgo - Semana 3
 
 ## 1. Propósito
-Priorizar el control de calidad mediante **risk-based testing**, enfocándonos en riesgos de alto impacto y observables.  
-Conexión explícita: **Riesgo → Escenario → Evidencia → Riesgo residual**.  
-Esto genera una estrategia defendible y reproducible.
+Aplicar risk-based testing para priorizar esfuerzos de calidad en la API Petstore con tiempo limitado.  
+Enfocarse en riesgos de alto impacto y observables (disponibilidad, latencia, consistencia) que afectan directamente el valor entregado y la percepción del producto.  
+Generar evidencia reproducible que conecte Riesgo → Escenario → Evidencia → Oráculo → Riesgo residual, justificando decisiones de testing de forma defendible.
 
-## 2. Definición de Riesgos de Calidad
-Riesgos del producto (no de gestión):  
-- Disponibilidad  
-- Latencia / Rendimiento  
-- Consistencia de respuestas  
-- Robustez  
-- Cumplimiento del contrato OpenAPI  
-- Integridad de datos  
-- Seguridad  
-- Usabilidad para consumidores  
+## 2. Alcance
+**Cubierto esta semana (Top 3 riesgos):**
+- Disponibilidad básica (no 5xx inesperados).
+- Baseline de latencia local en endpoints clave.
+- Consistencia mínima en respuestas (coherencia de datos y formato).
 
-## 3. Matriz de Riesgos y Priorización
-Ver [`risk/risk_matrix.csv`](./risk_matrix.csv) (8 riesgos identificados).  
+**No cubierto por ahora:**
+- Seguridad profunda (authn/authz, inyección).
+- Pruebas de carga/concurrencia.
+- Integridad de datos bajo múltiples operaciones.
+- Validación completa del contrato OpenAPI.
+- Entornos no locales (staging/producción).
 
-**Criterios**: Severidad = Probabilidad × Impacto.  
-**Top 3 priorizados** (alto impacto + observables por usuarios/consumidores):
+## 3. Top 3 riesgos priorizados
 
-1. **R01 - Disponibilidad** → Sin sistema disponible no hay valor entregado (Crítico)  
-2. **R02 - Latencia** → Afecta directamente la experiencia del usuario y percepción de calidad (Alto)  
-3. **R03 - Consistencia** → Inconsistencias generan pérdida de confianza y errores lógicos (Alto)
+| Riesgo (ID) | Por qué es Top (razón principal)                  | Escenario asociado                          | Evidencia generada (week3)                          | Oráculo mínimo (pass/fail)                          | Riesgo residual esperado                          |
+|-------------|---------------------------------------------------|---------------------------------------------|-----------------------------------------------------|-----------------------------------------------------|---------------------------------------------------|
+| R01         | Sin disponibilidad → cero valor entregado        | quality/scenarios.md#SC-01 (smoke extension: múltiples endpoints) | evidence/week3/smoke_results.log<br>evidence/week3/health_check.txt | 100% ejecuciones HTTP < 500 (no 5xx inesperados)   | Persiste riesgo de caídas intermitentes o bajo carga no probada |
+| R02         | Afecta percepción de calidad y UX del consumidor | quality/scenarios.md#SC-05 (latencia baseline) | evidence/week3/latency_measurements.csv<br>evidence/week3/latency_summary.txt | HTTP 200 en todas; p95 ≤ 2.0s (umbral local conservador) | No representa rendimiento en producción ni bajo concurrencia |
+| R03         | Inconsistencias generan pérdida de confianza y errores lógicos | quality/scenarios.md#SC-06 (consistency extension: listas/filtros) | evidence/week3/consistency_asserts.log<br>evidence/week3/findByStatus_sample.json | Schema válido; valores ≥0; counts coherentes entre llamadas repetidas | No cubre inconsistencias semánticas profundas o con cambios de estado |
 
-## 4. Enfoque de Pruebas Basado en Riesgo
-- **Top 3**: Cobertura alta → pruebas automatizadas (smoke, mediciones, asserts consistencia), ejecución frecuente, evidencia completa en `evidence/week3/`.  
-- **Otros**: Cobertura media/baja → selectiva o exploratoria.
+## 4. Reglas de evidencia
+- Toda evidencia se almacena en carpeta `evidence/week3/`.
+- Cada prueba debe ser reproducible: registrar comando/script exacto (ej. `make smoke`, `pytest tests/test_smoke.py -v`).
+- Oráculo mínimo explícito (pass/fail) definido por riesgo y documentado en RUNLOG.md.
+- Incluir salida cruda (logs, CSV, JSON) + summary legible (ej. tabla o texto con pass/fail).
+- `evidence/week3/RUNLOG.md`: registro cronológico con fecha, comando, resultado global (OK/FAIL), enlaces a archivos.
 
-**Conexión Riesgo → Escenario → Evidencia → Riesgo residual** (para Top 3):
+## 5. Riesgo residual
+Tras mitigar los Top 3 con evidencia básica reproducible en entorno local, persiste riesgo significativo en: estabilidad bajo carga/concurrencia, seguridad (exposición real), integridad de datos en flujos multi-operación, y generalización a entornos no locales.  
+Se acepta este residual en la etapa actual porque el foco es construir una base defendible y automatizada de calidad observable, antes de escalar alcance o introducir complejidad (carga, seguridad, producción).
 
-| Riesgo | Escenario clave | Tipo de evidencia | Riesgo residual esperado |
-|--------|-----------------|-------------------|--------------------------|
-| R01 (Disponibilidad) | Health check falla o 5xx inesperado | Smoke tests logs, HTTP codes, RUNLOG | Bajo (si pasa consistentemente) |
-| R02 (Latencia) | Respuestas > umbral en /pet/findByStatus | Mediciones CSV/txt (avg, p95), summary | Medio (baseline local; no producción) |
-| R03 (Consistencia) | Respuestas variables en listas/filtros | Asserts en schema, counts, valores lógicos | Bajo-Medio (si asserts cubren casos clave) |
-
-## 5. Evidencia y Trazabilidad
-- Carpeta: `evidence/week3/`  
-- `RUNLOG.md`: Registro cronológico (fecha, comando, resultado, enlaces).  
-- Evidencia detallada solo para Top 3 esta semana (logs, CSVs, outputs de pytest, etc.).
-
-## 6. Riesgo residual general
-Aun mitigando Top 3, persisten riesgos en robustez profunda, seguridad, integridad bajo carga y entornos reales. Se acepta en esta etapa para enfocarnos en evidencia reproducible y básica.
-
+## 6. Validez
+- **Validez interna**: Warm-up del contenedor y variabilidad de red local pueden sesgar latencia y disponibilidad → mitigar reiniciando Docker y descartando primeras ejecuciones.
+- **Validez de constructo**: Mediciones locales (time_total, HTTP codes) son proxies razonables para disponibilidad y latencia básica, pero no equivalen a rendimiento real ni SLOs productivos → declarado explícitamente como "baseline local".
+- **Validez externa**: Resultados dependen de hardware, versión Docker y configuración local del equipo → no se generalizan a otros entornos sin repetición; registrar specs del entorno en RUNLOG.md.
 
 **Aprobado / Responsable**: Equipo
 - BALCAZAR VEIZAGA EVANS

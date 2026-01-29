@@ -23,11 +23,18 @@ help:
 	@echo "  SC-06           - Escenario SC-06: Validación de forma en inventario (Data Shape Sanity)"
 	@echo "  QA-week2        - Ejecutar todos los escenarios SC-01 a SC-06"
 	@echo ""
+	@echo "  Risk-based testing - Semana 3:"
+	@echo "  R01 			 - Disponibilidad (SC-01)"
+	@echo "  R02 		 	 - Rendimiento (SC-05)"
+	@echo "  R03 			 - Consistencia (SC-06)"
+	@echo "  RBT-week3       - Ejecutar todos los escenarios de Risk-based testing"
+	@echo ""
 	@echo "Pruebas Legacy / Rápidas:"
 	@echo "  smoke           - Ejecutar smoke test completo (endpoints críticos)"
 	@echo ""
 	@echo "Utilidades:"
 	@echo "  clean           - Eliminar evidencias temporales de week2 (opcional)"
+	@echo "  clean-rbt       - Eliminar evidencias temporales de week3 (opcional)"
 
 # Configuración inicial
 setup:
@@ -86,8 +93,32 @@ QA-week2: SC-01 SC-02 SC-03 SC-04 SC-05 SC-06
 	@echo "OK: Evidencias generadas en evidence/week2/"
 	@echo "========================================"
 
+# Escenarios de la Semana 3
+risk01:  # R01 - Disponibilidad (SC-01)
+	scripts/risk01_SC_01.sh
+
+risk02:  # R02 - Latencia (SC-05)
+	scripts/risk02_SC_05.sh 30  # 30 reps por default
+
+risk03:  # R03 - Consistencia (SC-06)
+	scripts/risk03_SC_06.sh 5  # 5 reps por default
+
+# Target para generar todas las evidencias de Semana 3
+RBT-week3: risk01 risk02 risk03  # Ejecuta todos los riesgos Top 3
+	@echo ""
+	@echo "========================================"
+	@echo "OK: Todos los Riegos completados"
+	@echo "OK: Evidencias generadas en evidence/week3/"
+	@echo "========================================"
+
 # Limpieza
 clean:
 	@echo "Limpiando evidencias temporales..."
 	@rm -rf evidence/week2/*.log evidence/week2/*.json evidence/week2/*.txt evidence/week2/*.csv 2>/dev/null || true
 	@echo "OK: Limpieza completada (archivos de week2 eliminados)"
+
+	# Limpieza específica para week3
+clean-rbt:
+	@echo "Limpiando evidencias temporales..."
+	@rm -rf evidence/week3/*.log evidence/week3/*.json evidence/week3/*.txt evidence/week3/*.csv 2>/dev/null || true
+	@echo "OK: Limpieza completada (archivos de week3 eliminados)"

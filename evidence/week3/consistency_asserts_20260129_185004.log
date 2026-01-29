@@ -1,0 +1,10 @@
+Pruebas de consistencia (R03 - SC-06) - Fecha: jue 29 ene 2026 18:50:04 -04
+Endpoint: http://localhost:8080/api/v3/pet/findByStatus?status=available (5 reps sin cambios de estado)
+Ejecución 1: count = 8
+  Sample JSON guardado en evidence/week3/findByStatus_sample_20260129_185004.json
+Ejecución 2: count = 8
+Ejecución 3: count = 8
+Ejecución 4: count = 8
+Ejecución 5: count = 8
+
+Resultado global: OK (counts consistentes, valores >=0 implícito en API)
