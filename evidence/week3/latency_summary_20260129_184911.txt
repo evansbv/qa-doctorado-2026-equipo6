@@ -1,0 +1,7 @@
+Midiendo latencia en http://localhost:8080/api/v3/store/inventory (30 reps) - Fecha: jue 29 ene 2026 18:49:11 -04
+Estadísticas:
+- Media: 0.00299613 s
+- Mín: 0.001738 s
+- Máx: 0.004335 s
+- p95: 0.003985 s
+Resultado: OK (p95 <= 2.0s)
