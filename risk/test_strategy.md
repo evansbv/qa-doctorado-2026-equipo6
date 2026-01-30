@@ -22,13 +22,13 @@ Generar evidencia reproducible que conecte Riesgo → Escenario → Evidencia �
 
 | Riesgo (ID) | Por qué es Top (razón principal)                  | Escenario asociado                          | Evidencia generada (week3)                          | Oráculo mínimo (pass/fail)                          | Riesgo residual esperado                          |
 |-------------|---------------------------------------------------|---------------------------------------------|-----------------------------------------------------|-----------------------------------------------------|---------------------------------------------------|
-| R01         | Sin disponibilidad → cero valor entregado        | quality/scenarios.md#SC-01 (smoke extension: múltiples endpoints) | evidence/week3/smoke_results.log<br>evidence/week3/health_check.txt | 100% ejecuciones HTTP < 500 (no 5xx inesperados)   | Persiste riesgo de caídas intermitentes o bajo carga no probada |
-| R02         | Afecta percepción de calidad y UX del consumidor | quality/scenarios.md#SC-05 (latencia baseline) | evidence/week3/latency_measurements.csv<br>evidence/week3/latency_summary.txt | HTTP 200 en todas; p95 ≤ 2.0s (umbral local conservador) | No representa rendimiento en producción ni bajo concurrencia |
-| R03         | Inconsistencias generan pérdida de confianza y errores lógicos | quality/scenarios.md#SC-06 (consistency extension: listas/filtros) | evidence/week3/consistency_asserts.log<br>evidence/week3/findByStatus_sample.json | Schema válido; valores ≥0; counts coherentes entre llamadas repetidas | No cubre inconsistencias semánticas profundas o con cambios de estado |
+| R01         | Sin disponibilidad → cero valor entregado        | quality/scenarios.md#SC-01 (smoke extension: múltiples endpoints) | evidence/week3/smoke_results_20260129_184543.log<br>evidence/week3/smoke_http_codes_20260129_184543.txt | 100% ejecuciones HTTP < 500 (no 5xx inesperados)   | Persiste riesgo de caídas intermitentes o bajo carga no probada |
+| R02         | Afecta percepción de calidad y UX del consumidor | quality/scenarios.md#SC-05 (latencia baseline) | evidence/week3/latency_measurements_20260129_184911.csv<br>evidence/week3/latency_summary_20260129_184911.txt | HTTP 200 en todas; p95 ≤ 2.0s (umbral local conservador) | No representa rendimiento en producción ni bajo concurrencia |
+| R03         | Inconsistencias generan pérdida de confianza y errores lógicos | quality/scenarios.md#SC-06 (consistency extension: listas/filtros) | evidence/week3/consistency_asserts_20260129_185004.log<br>evidence/week3/findByStatus_sample_20260129_185004.json | Schema válido; valores ≥0; counts coherentes entre llamadas repetidas | No cubre inconsistencias semánticas profundas o con cambios de estado |
 
 ## 4. Reglas de evidencia
 - Toda evidencia se almacena en carpeta `evidence/week3/`.
-- Cada prueba debe ser reproducible: registrar comando/script exacto (ej. `make smoke`, `pytest tests/test_smoke.py -v`).
+- Cada prueba debe ser reproducible: registrar comando/script exacto (ej. `make smoke`, `make Risk01`, `make RBT-week3`).
 - Oráculo mínimo explícito (pass/fail) definido por riesgo y documentado en RUNLOG.md.
 - Incluir salida cruda (logs, CSV, JSON) + summary legible (ej. tabla o texto con pass/fail).
 - `evidence/week3/RUNLOG.md`: registro cronológico con fecha, comando, resultado global (OK/FAIL), enlaces a archivos.
