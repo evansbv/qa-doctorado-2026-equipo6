@@ -1,15 +1,17 @@
 #!/bin/bash
-
 # risk01_SC_01.sh: Smoke tests para disponibilidad (R01, SC-01 extension)
 # Verifica HTTP < 500 en endpoints críticos
 # Uso: ./risk01_SC_01.sh
 
-API_BASE_URL="http://localhost:8080/v3"  # Ajusta si es /api/v3
+set -euo pipefail
+
+API_BASE_URL="http://localhost:8080/api/v3"  # Ajusta si es /api/v3
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 EVIDENCE_DIR="evidence/week3"
 mkdir -p $EVIDENCE_DIR
 
-LOG_FILE="$EVIDENCE_DIR/smoke_results.log"
-HTTP_CODES_FILE="$EVIDENCE_DIR/smoke_http_codes.txt"
+LOG_FILE="$EVIDENCE_DIR/smoke_results_${TIMESTAMP}.log"
+HTTP_CODES_FILE="$EVIDENCE_DIR/smoke_http_codes_${TIMESTAMP}.txt"
 
 echo "Smoke Tests para Disponibilidad (R01 - SC-01) - Fecha: $(date)" > $LOG_FILE
 echo "Endpoints probados:" >> $LOG_FILE

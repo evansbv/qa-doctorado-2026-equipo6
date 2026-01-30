@@ -4,14 +4,15 @@
 # Mide time_total en endpoint clave con repeticiones
 # Uso: ./risk02_SC_05.sh [num_reps]  (default: 30)
 
-API_BASE_URL="http://localhost:8080/v3"  # Ajusta si es /api/v3
+API_BASE_URL="http://localhost:8080/api/v3"  # Ajusta si es /api/v3
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 ENDPOINT="$API_BASE_URL/store/inventory"  # Endpoint de SC-05
 NUM_REPS=${1:-30}
 EVIDENCE_DIR="evidence/week3"
 mkdir -p $EVIDENCE_DIR
 
-CSV_FILE="$EVIDENCE_DIR/latency_measurements.csv"
-SUMMARY_FILE="$EVIDENCE_DIR/latency_summary.txt"
+CSV_FILE="$EVIDENCE_DIR/latency_measurements_${TIMESTAMP}.csv"
+SUMMARY_FILE="$EVIDENCE_DIR/latency_summary_${TIMESTAMP}.txt"
 
 echo "request,time_total (s)" > $CSV_FILE
 

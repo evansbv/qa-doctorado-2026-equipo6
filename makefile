@@ -24,9 +24,9 @@ help:
 	@echo "  QA-week2        - Ejecutar todos los escenarios SC-01 a SC-06"
 	@echo ""
 	@echo "  Risk-based testing - Semana 3:"
-	@echo "  R01 			 - Disponibilidad (SC-01)"
-	@echo "  R02 		 	 - Rendimiento (SC-05)"
-	@echo "  R03 			 - Consistencia (SC-06)"
+	@echo "  Risk01 			 - Disponibilidad (SC-01)"
+	@echo "  Risk02 		 	 - Rendimiento (SC-05)"
+	@echo "  Risk03 			 - Consistencia (SC-06)"
 	@echo "  RBT-week3       - Ejecutar todos los escenarios de Risk-based testing"
 	@echo ""
 	@echo "Pruebas Legacy / Rápidas:"
@@ -94,17 +94,20 @@ QA-week2: SC-01 SC-02 SC-03 SC-04 SC-05 SC-06
 	@echo "========================================"
 
 # Escenarios de la Semana 3
-risk01:  # R01 - Disponibilidad (SC-01)
-	scripts/risk01_SC_01.sh
+Risk01:  # R01 - Disponibilidad (SC-01)
+	@echo "Ejecutando Risk01 - Disponibilidad (SC-01)"
+	@./scripts/risk01_SC_01.sh
 
-risk02:  # R02 - Latencia (SC-05)
-	scripts/risk02_SC_05.sh 30  # 30 reps por default
+Risk02:  # R02 - Latencia (SC-05)
+	@echo "Ejecutando Risk02 - Latencia (SC-05)"
+	@./scripts/risk02_SC_05.sh 30  # 30 reps por default
 
-risk03:  # R03 - Consistencia (SC-06)
-	scripts/risk03_SC_06.sh 5  # 5 reps por default
+Risk03:  # R03 - Consistencia (SC-06)
+	@echo "Ejecutando Risk03 - Validación de forma en inventario"
+	@./scripts/risk03_SC_06.sh 5  # 5 reps por default
 
 # Target para generar todas las evidencias de Semana 3
-RBT-week3: risk01 risk02 risk03  # Ejecuta todos los riesgos Top 3
+RBT-week3: Risk01 Risk02 Risk03  # Ejecuta todos los riesgos Top 3
 	@echo ""
 	@echo "========================================"
 	@echo "OK: Todos los Riegos completados"

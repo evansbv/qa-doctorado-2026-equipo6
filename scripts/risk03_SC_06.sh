@@ -4,14 +4,15 @@
 # Repite llamadas y verifica counts/formato coherente
 # Uso: ./risk03_SC_06.sh [num_reps]  (default: 5)
 
-API_BASE_URL="http://localhost:8080/v3"  # Ajusta si es /api/v3
+API_BASE_URL="http://localhost:8080/api/v3"  # Ajusta si es /api/v3
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 ENDPOINT="$API_BASE_URL/pet/findByStatus?status=available"  # Extensión a listas
 NUM_REPS=${1:-5}
 EVIDENCE_DIR="evidence/week3"
 mkdir -p $EVIDENCE_DIR
 
-LOG_FILE="$EVIDENCE_DIR/consistency_asserts.log"
-SAMPLE_JSON="$EVIDENCE_DIR/findByStatus_sample.json"
+LOG_FILE="$EVIDENCE_DIR/consistency_asserts_${TIMESTAMP}.log"
+SAMPLE_JSON="$EVIDENCE_DIR/findByStatus_sample_${TIMESTAMP}.json"
 
 echo "Pruebas de consistencia (R03 - SC-06) - Fecha: $(date)" > $LOG_FILE
 echo "Endpoint: $ENDPOINT ($NUM_REPS reps sin cambios de estado)" >> $LOG_FILE
