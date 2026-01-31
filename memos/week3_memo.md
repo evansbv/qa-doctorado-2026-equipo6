@@ -7,7 +7,7 @@
   - EVANS BALCAZAR VEIZAGA  
   - JORGE MARCELO ROSALES FUENTES   
   - MARCELO CORDERO FLORES  
-  - SHIRLEY EULALIA PEREZ DELGADILLO   
+  - SHIRLEY EULALIA PEREZ DELGADILLO    
 
 **Objetivo de la semana:** Implementar estrategia de pruebas basada en riesgo + evidencia para la API Petstore.  
 Priorizar control de calidad conectando: Riesgo → Escenario → Evidencia → Riesgo residual.  
