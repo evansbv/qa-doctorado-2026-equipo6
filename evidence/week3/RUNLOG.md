@@ -3,7 +3,7 @@
 
 **Fecha de ejecución principal**: 2026-01-29 / 2026-01-31 (referencial)  
 **SUT (System Under Test)**: Swagger Petstore API (Docker local)  
-**URL base**: http://localhost:8080/v2 (o /api/v3 según tu configuración)  
+**URL base**: http://localhost:8080/api/v3 
 **Entorno**: Local (Santa Cruz de la Sierra, -04 timezone)  
 **Objetivo**: Generar evidencia reproducible para los Top 3 riesgos de `risk/risk_matrix.csv`:  
 - R01: Disponibilidad (escenario SC-01 smoke extension)  
