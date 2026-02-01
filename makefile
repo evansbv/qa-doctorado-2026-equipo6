@@ -13,6 +13,7 @@ help:
 	@echo "  stop-petstore   - Detener el contenedor Petstore"
 	@echo "  restart-petstore- Reiniciar el contenedor Petstore"
 	@echo "  healthcheck     - Verificar que el SUT responde en puerto 8080"
+	@echo "  clean           - Eliminar el contenedor Petstore (datos in-memory se pierden)"
 	@echo ""
 	@echo "Pruebas de Calidad - Semana 2:"
 	@echo "  SC-01           - Escenario SC-01: Creación exitosa de mascota (Happy Path / Contract)"
@@ -54,6 +55,9 @@ restart-petstore:
 
 healthcheck:
 	./setup/manage-petstore.sh health
+
+clean:
+	./setup/manage-petstore.sh clean
 
 # Smoke test actualizado
 smoke:

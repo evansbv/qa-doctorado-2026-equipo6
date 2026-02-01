@@ -8,7 +8,7 @@
 set -euo pipefail
 
 CONTAINER_NAME="petstore3"
-IMAGE_NAME="swaggerapi/petstore3:unstable"
+IMAGE_NAME="swaggerapi/petstore3"
 PORT_MAPPING="8080:8080"
 HEALTH_URL="http://localhost:8080"
 
