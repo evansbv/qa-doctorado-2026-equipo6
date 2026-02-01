@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 CONTAINER_NAME="petstore3"
-IMAGE_NAME="swaggerapi/petstore3:unstable"
+IMAGE_NAME="swaggerapi/petstore3"
 
 if docker ps --filter "name=${CONTAINER_NAME}" --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
     echo "Ya está corriendo."
