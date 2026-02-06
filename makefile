@@ -23,19 +23,23 @@ help:
 	@echo "  SC-05           - Escenario SC-05: Latencia básica en /store/inventory (Performance - Local)"
 	@echo "  SC-06           - Escenario SC-06: Validación de forma en inventario (Data Shape Sanity)"
 	@echo "  QA-week2        - Ejecutar todos los escenarios SC-01 a SC-06"
+	@echo "  clean-pc        - Eliminar evidencias temporales de week2 (opcional)"
 	@echo ""
-	@echo "  Risk-based testing - Semana 3:"
+	@echo "Risk-based testing - Semana 3:"
 	@echo "  Risk01 			 - Disponibilidad (SC-01)"
 	@echo "  Risk02 		 	 - Rendimiento (SC-05)"
 	@echo "  Risk03 			 - Consistencia (SC-06)"
 	@echo "  RBT-week3       - Ejecutar todos los escenarios de Risk-based testing"
+	@echo "  clean-rbt       - Eliminar evidencias temporales de week3 (opcional)"
+	@echo ""
+	@echo "Diseño sistemático - Semana 4:"
+	@echo "  week4-cases     - Ejecutar los 14 casos sistemáticos (POST /store/order)"
+	@echo "  week4-evidence  - Ejecutar casos + mostrar resumen de evidencias week4"
+	@echo "  clean-week4     - Eliminar evidencias temporales de week4"
 	@echo ""
 	@echo "Pruebas Legacy / Rápidas:"
 	@echo "  smoke           - Ejecutar smoke test completo (endpoints críticos)"
-	@echo ""
-	@echo "Utilidades:"
-	@echo "  clean           - Eliminar evidencias temporales de week2 (opcional)"
-	@echo "  clean-rbt       - Eliminar evidencias temporales de week3 (opcional)"
+	@echo ""	
 
 # Configuración inicial
 setup:
@@ -118,13 +122,32 @@ RBT-week3: Risk01 Risk02 Risk03  # Ejecuta todos los riesgos Top 3
 	@echo "OK: Evidencias generadas en evidence/week3/"
 	@echo "========================================"
 
-# Limpieza
-clean:
+# Semana 4 - Diseño sistemático
+week4-cases:
+	@echo "Ejecutando 14 casos sistemáticos (Semana 4)..."
+	@scripts/systematic_cases.sh
+
+week4-evidence: week4-cases
+	@echo ""
+	@echo "========================================"
+	@echo "OK: Casos sistemáticos ejecutados"
+	@echo "OK: Evidencias generadas en evidence/week4/"
+	@echo "Resumen más reciente:"
+	@ls -t evidence/week4/summary_*.txt | head -1 | xargs cat
+	@echo "========================================"
+
+clean-week4:
+	@echo "Limpiando evidencias temporales de Semana 4..."
+	@rm -rf evidence/week4/*.txt evidence/week4/*.json evidence/week4/*.log 2>/dev/null || true
+	@echo "OK: Limpieza completada (archivos de week4 eliminados)"
+
+# Limpieza específica para week2
+clean-pc:
 	@echo "Limpiando evidencias temporales..."
 	@rm -rf evidence/week2/*.log evidence/week2/*.json evidence/week2/*.txt evidence/week2/*.csv 2>/dev/null || true
 	@echo "OK: Limpieza completada (archivos de week2 eliminados)"
 
-	# Limpieza específica para week3
+# Limpieza específica para week3
 clean-rbt:
 	@echo "Limpiando evidencias temporales..."
 	@rm -rf evidence/week3/*.log evidence/week3/*.json evidence/week3/*.txt evidence/week3/*.csv 2>/dev/null || true

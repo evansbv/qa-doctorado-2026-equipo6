@@ -1,5 +1,0 @@
-SC-04 - Creación inválida (sin name) - mié 21 ene 2026 15:04:33 -04
-Código HTTP: 200
-→ FALLÓ: Se esperaba 400 o 405, obtenido 200
-→ OK: Error esperado recibido (código 200)
-SC-04 FINALIZADO - mié 21 ene 2026 15:04:33 -04

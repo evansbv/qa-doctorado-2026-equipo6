@@ -1,6 +1,0 @@
-SC-02 - Consulta de mascota por ID - mié 21 ene 2026 15:04:33 -04
-PET_ID usado: 1000001
-----------------------------------------
-Código HTTP: 200
-→ OK: Mascota obtenida correctamente
-SC-02 FINALIZADO - mié 21 ene 2026 15:04:33 -04
