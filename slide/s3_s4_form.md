@@ -15,14 +15,28 @@
 
 **Fuente**: risk/risk_matrix.csv
 
+El proceso de gestión de riesgos asumido para el proyecto se basó en el proceso descrito en la ISO 31000 (Gestión de riesgos), mismo que tiene las fases de:
+- Identificación de Riesgos
+- Análisis de Riesgos
+- Evaluación de Riesgos
+- Tratamiento de Riesgos
+
+## IDENTIFICACIÓN DE RIESGOS
+
+Para el proceso de gestión de riesgos en el proceso de pruebas se identificó los siguientes atributos basados en una lluvia de ideas de los participantes (ISO 31010)
+
 | Riesgo | Atributo         | Impacto | Prob. | Score | Justificación breve                                      |
 |--------|------------------|---------|-------|-------|----------------------------------------------------------|
 | **R01** | Disponibilidad   | 5       | 4     | **20** | Sin disponibilidad → cero valor entregado (crítico), aspecto que no está asumido en el apetito de riesgo      |
-| **R02** | Latencia         | 4       | 4     | **16** | Impacta percepción de calidad y UX del consumidor, aspecto identificado mediante lluvia de ideas de los expertos (ISO 31010)        |
+| **R02** | Latencia         | 4       | 4     | **16** | Impacta percepción de calidad y UX del consumidor        |
 | **R03** | Consistencia     | 4       | 4     | **16** | Genera pérdida de confianza y errores lógicos downstream, aspecto que tiene un plan de acción no operativizado |
 
 **Decisión clave (1 frase)**  
 Priorizamos riesgos de alto impacto observable y alta probabilidad local (disponibilidad, latencia, consistencia) después de realizar el análisis de riesgo mediante el proceso de la ISO 31000, aceptando el residual en seguridad/carga para maximizar evidencia reproducible en tiempo limitado basado en los proceso de tratamiento de riesgos que esté alineado al apetito de riesgo organizacional.
+
+## ANALISIS DE RIESGOS
+
+Basado en el método de análisis de riesgos Swift gestionado por el equipo se consideró el siguiente esquema de análisis de los riesgos identificados:
 
 ## Slide 2 — Semana 3: trazabilidad (Riesgo → Escenario → Evidencia → Oráculo → Residual)
 
@@ -42,9 +56,15 @@ Priorizamos riesgos de alto impacto observable y alta probabilidad local (dispon
 **Decisión clave de trazabilidad**  
 Cada riesgo Top 3 se conecta explícitamente a un escenario existente de Semana 2 (reutilización), evidencia reproducible (scripts + Makefile), oráculo mínimo cuantificable y riesgo residual explícito y aceptado (documentado en test_strategy.md y RUNLOG.md), priorizando defendibilidad sobre exhaustividad.
 
+## EVALUACIÓN DEL RIESGO
+
+Basado en el método de análisis de riesgos Swift gestionado por el equipo se consideró el siguiente esquema de análisis de los riesgos identificados:
+
+Se gestionó la evaluación de riesgos en función al apetito de riesgos del equipo, considerando factores de recursos disponibles para la adopción de medidas mitigantes o aceptaciones de riesgos.
+
 ## Slide 3 — Semana 3: riesgo residual (qué queda fuera y por qué)
 
-**Riesgos NO priorizados (al menos 2 – ejemplos clave de la matriz)**
+**Riesgos NO priorizados (al menos 2 – ejemplos clave de la matriz)** --> Aceptación de riesgos
 
 - **R07 – Seguridad** (Score 10: Impacto 5 / Probabilidad 2)  
   Queda fuera ahora porque: probabilidad baja en el entorno mock local (sin autenticación real enforced, sin exposición pública), y no hay evidencia observable inmediata de broken auth o data leak en esta etapa. Se acepta residual alto por ahora; priorizamos riesgos más observables y frecuentes (disponibilidad, latencia, consistencia).
@@ -56,6 +76,10 @@ Cada riesgo Top 3 se conecta explícitamente a un escenario existente de Semana 
 
 Tras mitigar los Top 3 riesgos (disponibilidad, latencia, consistencia) con evidencia reproducible en entorno local, queda abierto un riesgo significativo en estabilidad bajo carga/concurrencia, seguridad (broken auth, exposición de datos), integridad profunda en flujos multi-operación y cumplimiento estricto del contrato OpenAPI en escenarios reales.  
 Este residual es aceptable por ahora porque fue construir una base defendible y automatizada de calidad observable (con trazabilidad riesgo-escenario-evidencia), antes de escalar a complejidad mayor (carga, seguridad productiva, validación automática vs spec). 
+
+## TRATAMIENTO DEL RIESGO
+
+Basa en la evaluación de riesgos descrito en el punto precedente se identificó que las acciones deben ser asumidas de la siguiente manera:
 
 ## Slide 4 — Semana 4: objeto de prueba + técnica sistemática
 
