@@ -1,7 +1,7 @@
 # Memo Semanal - Semana 4  
 **Curso**: DCC-M10_T3-4_CS-SEM3-4  
 **Equipo**: Equipo 6  
-- **Participantes:**
+**Participantes:**
   - EVANS BALCAZAR VEIZAGA  
   - JORGE MARCELO ROSALES FUENTES  
   - MARCELO CORDERO FLORES  
