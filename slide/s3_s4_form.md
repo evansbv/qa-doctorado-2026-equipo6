@@ -17,12 +17,12 @@
 
 | Riesgo | Atributo         | Impacto | Prob. | Score | Justificación breve                                      |
 |--------|------------------|---------|-------|-------|----------------------------------------------------------|
-| **R01** | Disponibilidad   | 5       | 4     | **20** | Sin disponibilidad → cero valor entregado (crítico)      |
-| **R02** | Latencia         | 4       | 4     | **16** | Impacta percepción de calidad y UX del consumidor        |
-| **R03** | Consistencia     | 4       | 4     | **16** | Genera pérdida de confianza y errores lógicos downstream |
+| **R01** | Disponibilidad   | 5       | 4     | **20** | Sin disponibilidad → cero valor entregado (crítico), aspecto que no está asumido en el apetito de riesgo      |
+| **R02** | Latencia         | 4       | 4     | **16** | Impacta percepción de calidad y UX del consumidor, aspecto identificado mediante lluvia de ideas de los expertos (ISO 31010)        |
+| **R03** | Consistencia     | 4       | 4     | **16** | Genera pérdida de confianza y errores lógicos downstream, aspecto que tiene un plan de acción no operativizado |
 
 **Decisión clave (1 frase)**  
-Priorizamos riesgos de alto impacto observable y alta probabilidad local (disponibilidad, latencia, consistencia), aceptando el residual en seguridad/carga para maximizar evidencia reproducible en tiempo limitado.
+Priorizamos riesgos de alto impacto observable y alta probabilidad local (disponibilidad, latencia, consistencia) después de realizar el análisis de riesgo mediante el proceso de la ISO 31000, aceptando el residual en seguridad/carga para maximizar evidencia reproducible en tiempo limitado basado en los proceso de tratamiento de riesgos que esté alineado al apetito de riesgo organizacional.
 
 ## Slide 2 — Semana 3: trazabilidad (Riesgo → Escenario → Evidencia → Oráculo → Residual)
 
