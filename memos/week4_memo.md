@@ -38,3 +38,19 @@ El foco estuvo en demostrar un enfoque metodológico riguroso y reproducible, co
 - Scripts reproducibles con timestamp y summary automático facilitan trazabilidad y revisión; el uso de `timeout` y `sleep` evita problemas de saturación en mocks locales.
 - Definir oráculos débiles/fuertes desde el inicio permite evaluar tanto cumplimiento básico como calidad profunda.
 
+## Resultados clave
+- Oráculos definidos: 5 reglas de oráculo claras y reutilizables para evaluar las respuestas del endpoint.
+- Casos sistemáticos diseñados: 12 casos de prueba basados en la técnica EQ/BV, documentados en design/test_cases.md.
+- Ejecución reproducible implementada: El script scripts/systematic_cases.sh ejecuta las pruebas y produce evidencia consistente.
+- Evidencia generada: Los resultados de las pruebas se almacenaron en evidence/week4/, con un registro completo en RUNLOG.md y resúmenes de los resultados.
+- Informe metodológico: Se generó un informe detallado sobre el diseño y los límites de las pruebas realizadas.
+
+## Reflexión breve
+
+Esta semana se enfocó en la importancia de un diseño de pruebas sistemático, lo que nos permitió generar evidencia de calidad y reproducible. La elección de un endpoint con alta variabilidad y la aplicación de técnicas como EQ/BV garantizó una cobertura efectiva del sistema sin caer en la trampa de pruebas ad-hoc. A través de las reglas de oráculo, pudimos establecer criterios claros para la validación de los resultados y facilitar la interpretación de los mismos. La ejecución automatizada con el script desarrollado también aporta un gran valor a la trazabilidad y la replicabilidad de las pruebas.
+
+## Próximos pasos
+
+- Continuar con la ampliación de los casos de prueba para cubrir otros endpoints.
+- Optimizar el script de ejecución para manejar más casos de prueba de manera eficiente.
+- Revisar y actualizar los oráculos en caso de detectar nuevas condiciones o resultados inesperados.
