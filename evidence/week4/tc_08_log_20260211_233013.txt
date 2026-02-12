@@ -1,0 +1,7 @@
+TC-08: Status ausente
+HTTP Code: 200
+Payload enviado:
+{"petId": 1, "quantity": 5, "shipDate": "2026-03-01T10:00:00.000Z", "complete": false}
+----------------------------------------
+Resultado: PASS 08
+

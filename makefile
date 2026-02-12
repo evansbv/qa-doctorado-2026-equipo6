@@ -39,12 +39,19 @@ help:
 	@echo ""
 	@echo "Pruebas Legacy / Rápidas:"
 	@echo "  smoke           - Ejecutar smoke test completo (endpoints críticos)"
-	@echo ""	
+	@echo ""
+	@echo "Quality Gate - Semana 5:"
+	@echo "  QA-week5        - Ejecutar Quality Gate completo (setup + run + cleanup)"
+	@echo "  clean-week5     - Eliminar evidencias temporales de week5"
+	@echo "  quality-gate-only - Solo correr el quality gate (sin levantar automáticamente el SUT)"
+	@echo "  QA-week5-summary - Ejecutar quality gate + mostrar summary inmediatamente después"
+	@echo ""
 
 # Configuración inicial
 setup:
 	@echo "Configurando permisos de ejecución en scripts..."
 	@chmod +x setup/*.sh scripts/*.sh 2>/dev/null || true
+	@chmod +x ci/run_quality_gate.sh
 	@echo "OK: Entorno de scripts preparado"
 
 # Gestión del SUT (usando el script principal)
@@ -152,3 +159,41 @@ clean-rbt:
 	@echo "Limpiando evidencias temporales..."
 	@rm -rf evidence/week3/*.log evidence/week3/*.json evidence/week3/*.txt evidence/week3/*.csv 2>/dev/null || true
 	@echo "OK: Limpieza completada (archivos de week3 eliminados)"
+
+# Quality Gate - Semana 5
+QA-week5: setup
+	@echo ""
+	@echo "========================================"
+	@echo "Ejecutando Quality Gate - Semana 5"
+	@echo "========================================"
+	@echo ""
+	@./ci/run_quality_gate.sh && { \
+		echo ""; \
+		echo "========================================"; \
+		echo "OK: Quality Gate PASSED ✓"; \
+		echo "Evidencias generadas en evidence/week5/"; \
+		echo "========================================"; \
+	} || { \
+		echo ""; \
+		echo "========================================"; \
+		echo "ERROR: Quality Gate FALLÓ ✗"; \
+		echo "Revisa evidence/week5/SUMMARY.md y RUNLOG.md"; \
+		echo "========================================"; \
+		exit 1; \
+	}
+
+# Opcional: target para limpiar evidencias de week5
+clean-week5:
+	@echo "Limpiando evidencias temporales de Semana 5..."
+	@rm -rf evidence/week5/*.txt evidence/week5/*.md evidence/week5/*.log 2>/dev/null || true
+	@echo "OK: Limpieza completada (archivos de week5 eliminados)"
+
+# Solo correr el quality gate (sin levantar automáticamente el SUT)
+quality-gate-only:
+	@./ci/run_quality_gate.sh
+
+# Ejecutar quality gate + mostrar summary inmediatamente después
+QA-week5-summary: QA-week5
+	@echo ""
+	@echo "Resumen más reciente de Quality Gate:"
+	@ls -t evidence/week5/SUMMARY.md | head -1 | xargs cat

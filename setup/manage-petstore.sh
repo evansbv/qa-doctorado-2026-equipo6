@@ -36,15 +36,15 @@ function is_running() {
 
 case "${1:-help}" in
     start)
-        if is_running; then
-            echo "→ El contenedor ${CONTAINER_NAME} ya está corriendo."
-            exit 0
+        if docker ps -a --filter "name=^petstore3$" --format '{{.Names}}' | grep -q "^petstore3$"; then
+            echo "→ El contenedor petstore3 ya existe. Intentando iniciarlo si está detenido..."
+            docker start petstore3
+        else
+            echo "→ Creando nuevo contenedor petstore3..."
+            docker run -d --name petstore3 \
+                -p 8080:8080 \
+                swaggerapi/petstore3:unstable   # o tus flags actuales
         fi
-        echo "→ Iniciando Swagger Petstore..."
-        docker run -d --name "${CONTAINER_NAME}" -p "${PORT_MAPPING}" "${IMAGE_NAME}"
-        echo "→ Contenedor iniciado. Accede en: ${HEALTH_URL}"
-        sleep 3
-        $0 health
         ;;
 
     stop)

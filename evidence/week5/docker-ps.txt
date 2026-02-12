@@ -1,0 +1,2 @@
+CONTAINER ID   IMAGE                           COMMAND                  CREATED        STATUS                                     PORTS                                         NAMES
+a93dc9b2bdc9   swaggerapi/petstore3:unstable   "java -jar -Dswagger…"   1 second ago   Up Less than a second (health: starting)   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp   petstore-api

@@ -1,0 +1,7 @@
+TC-07: Status inválido
+HTTP Code: 200
+Payload enviado:
+{"petId": 1, "quantity": 5, "shipDate": "2026-03-01T10:00:00.000Z", "status": "cancelled", "complete": false}
+----------------------------------------
+Resultado: PASS 07
+

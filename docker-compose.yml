@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  petstore:
+    image: swaggerapi/petstore3:unstable  # o la tag que uses (latest, etc.)
+    container_name: petstore-api
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/v3/pet/findByStatus?status=available"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped  # útil para dev

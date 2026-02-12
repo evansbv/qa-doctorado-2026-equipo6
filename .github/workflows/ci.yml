@@ -1,0 +1,65 @@
+name: CI - Quality Gate (Semana 5)
+
+on:
+  push:
+    branches: [ main ]           # ajusta si tu rama principal es otra (ej. master)
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quality-gate:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout del código
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Instalar Docker (necesario para docker compose)
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      # 3. Instalar Node.js (para npx redocly u otras herramientas npm)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 4. Instalar dependencias npm (si usas redocly o paquetes npm)
+      - name: Install npm dependencies
+        run: npm ci || npm install   # npm ci si tienes package-lock.json, sino install
+
+      # 5. Instalar make y herramientas básicas (por si acaso)
+      - name: Install make and bash tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make curl jq   # jq opcional si lo usas en algún script
+
+      # 6. Dar permisos a todos los scripts (como hace make setup)
+      - name: Setup permissions
+        run: |
+          chmod +x ci/run_quality_gate.sh
+          chmod +x setup/*.sh scripts/*.sh 2>/dev/null || true
+
+      # 7. Ejecutar el Quality Gate (usando make para consistencia)
+      - name: Run Quality Gate
+        run: make QA-week5
+
+      # 8. Subir evidencias como artifact (siempre, incluso si falla)
+      - name: Upload evidence artifacts
+        if: always()   # ejecuta aunque el paso anterior falle
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-gate-evidence-week5
+          path: evidence/week5/
+          retention-days: 7   # opcional: cuánto tiempo guardar los artifacts
+
+      # Opcional: si quieres subir también el summary como texto para verlo rápido en CI
+      - name: Show summary (for quick view)
+        if: always()
+        run: |
+          echo "=== SUMMARY.md ==="
+          cat evidence/week5/SUMMARY.md || echo "No se generó SUMMARY.md"
+          echo ""
+          echo "=== Últimas líneas de RUNLOG.md ==="
+          tail -n 20 evidence/week5/RUNLOG.md || echo "No se generó RUNLOG.md"
