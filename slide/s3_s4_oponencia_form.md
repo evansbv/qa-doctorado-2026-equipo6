@@ -1,6 +1,6 @@
 # Guía del Oponente — Revisión bisemanal (Semanas 3 y 4)
 
-**Rol:** realizar una crítica metodológica breve y útil sobre el trabajo del equipo que presenta.  
+**Rol:** realizar una crítica metodológica breve y útil sobre el trabajo del Equipo #5.  
 **Enfoque:** razonamiento, trazabilidad y defendibilidad. **No** evaluar cantidad de pruebas ni cantidad de endpoints.
 
 **Tiempo total:** 6 minutos  
@@ -31,10 +31,10 @@
 
 ### Semana 3 — Estrategia basada en riesgo
 **Verificar en la presentación:**
-- [ ] Top 3 riesgos están justificados (impacto/probabilidad/score y razón breve)
-- [ ] Existe trazabilidad explícita: **riesgo → escenario → evidencia → oráculo**
-- [ ] La evidencia está referenciada con rutas del repo (ej.: `evidence/week3/...`)
-- [ ] Se declara el **riesgo residual** (qué queda fuera y por qué)
+- [x] Top 3 riesgos están justificados (impacto/probabilidad/score y razón breve)
+- [x] Existe trazabilidad explícita: **riesgo → escenario → evidencia → oráculo**
+- [x] La evidencia está referenciada con rutas del repo (ej.: `evidence/week3/...`)
+- [x] Se declara el **riesgo residual** (qué queda fuera y por qué)
 
 **Preguntas de ejemplo:**
 - ¿Qué evidencia haría **falsa** su afirmación de reducción de riesgo (falsación)?
@@ -45,11 +45,11 @@
 
 ### Semana 4 — Diseño sistemático + oráculos
 **Verificar en la presentación:**
-- [ ] Se eligió 1 objeto de prueba (endpoint/función) y se justifica
-- [ ] Técnica sistemática declarada (EQ/BV o pairwise) y coherente con los casos
-- [ ] Hay ≥ 5 reglas de oráculo (mínimas vs estrictas)
-- [ ] Casos y oráculos son trazables a evidencia (ej.: `evidence/week4/...`)
-- [ ] Se reconoce al menos 1 ambigüedad y cómo se resolvió
+- [x] Se eligió 1 objeto de prueba (endpoint/función) y se justifica
+- [x] Técnica sistemática declarada (EQ/BV o pairwise) y coherente con los casos
+- [x] Hay ≥ 5 reglas de oráculo (mínimas vs estrictas)
+- [x] Casos y oráculos son trazables a evidencia (ej.: `evidence/week4/...`)
+- [x] Se reconoce al menos 1 ambigüedad y cómo se resolvió
 
 **Preguntas de ejemplo:**
 - ¿Qué parte del oráculo es “mínima” (segura) y cuál es “estricta”? ¿Por qué?
