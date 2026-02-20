@@ -1,0 +1,20 @@
+make[1]: se entra en el directorio '/home/evansbv/qa-doctorado-2026-equipo6'
+Configurando permisos de ejecución en scripts...
+OK: Entorno de scripts preparado
+
+========================================
+Ejecutando Quality Gate - Semana 5
+========================================
+
+→ Limpiando contenedores y volúmenes previos...
+→ Check 1: SUT arriba + healthcheck
+→ Esperando healthcheck (máx 120s)...
+→ Check 2: Contrato OpenAPI accesible
+→ Check 3: Casos sistemáticos Semana 4
+
+========================================
+ERROR: Quality Gate FALLÓ ✗
+Revisa evidence/week5/SUMMARY.md y RUNLOG.md
+========================================
+make[1]: *** [makefile:173: QA-week5] Error 1
+make[1]: se sale del directorio '/home/evansbv/qa-doctorado-2026-equipo6'

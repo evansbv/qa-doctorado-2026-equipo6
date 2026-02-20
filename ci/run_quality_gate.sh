@@ -105,28 +105,30 @@ else
 fi
 
 # ────────────────────────────────────────────────────────────────────────────────
-# Check 3: Casos sistemáticos (Semana 4)
+# Check 3: Casos sistemáticos Semana 4 (con defensa anti-gaming)
 # ────────────────────────────────────────────────────────────────────────────────
 echo "→ Check 3: Casos sistemáticos Semana 4" | tee -a "${RUNLOG_FILE}"
 SYSTEMATIC_SUMMARY="${EVIDENCE_DIR}/systematic_summary.txt"
-SYSTEMATIC_CSV="${EVIDENCE_DIR}/systematic_results.csv"
+EXPECTED_CASES=14   # ← número fijo de casos sistemáticos esperados
 
-# Ejecutar script existente (ajusta path si es necesario)
-scripts/systematic_cases.sh > "${SYSTEMATIC_SUMMARY}" 2>&1 || true
+# Ejecutar el script (usamos la versión con contador para el drill)
+scripts/systematic_cases_with_counter.sh > "${SYSTEMATIC_SUMMARY}" 2>&1
+EXIT_CODE=$?
+echo "Exit code del script: $EXIT_CODE" >> "${RUNLOG_FILE}"
 
-# Copiar csv si existe en week4 (o generar uno simple)
-SYSTEMATIC_WEEK4="evidence/week4/summary_20260206_162736.txt"
-if [ -f $SYSTEMATIC_WEEK4 ]; then
-  cp $SYSTEMATIC_WEEK4 "${SYSTEMATIC_CSV}"
-else
-  echo "No se encontró $SYSTEMATIC_WEEK4 de week4" >> "${SYSTEMATIC_SUMMARY}"
+# Verificación de integridad anti-gaming
+if ! grep -q "TOTAL_CASOS_EJECUTADOS: ${EXPECTED_CASES}" "${SYSTEMATIC_SUMMARY}"; then
+  log_check "Casos Sistemáticos" "FAIL" "Integridad rota: falta o número incorrecto de TOTAL_CASOS_EJECUTADOS:${EXPECTED_CASES}"
+  echo "Defensa anti-gaming activada: contador de casos no encontrado o incorrecto" >> "${RUNLOG_FILE}"
+  exit 1
 fi
 
+# Oráculo original (FAIL)
 if grep -iq "FAIL" "${SYSTEMATIC_SUMMARY}"; then
   log_check "Casos Sistemáticos" "FAIL" "Al menos un caso falló (ver systematic_summary.txt)"
-  #exit 1
+  exit 1
 else
-  log_check "Casos Sistemáticos" "PASS" "Todos los casos sistemáticos pasaron (ver systematic_summary.txt)"
+  log_check "Casos Sistemáticos" "PASS" "No FAIL detectados + contador OK (${EXPECTED_CASES} casos)"
 fi
 
 # ────────────────────────────────────────────────────────────────────────────────

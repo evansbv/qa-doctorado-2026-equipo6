@@ -1,0 +1,7 @@
+TC-09: shipDate pasada
+HTTP Code: 200
+Payload enviado:
+{"petId": 1, "quantity": 5, "shipDate": "2025-01-01T00:00:00.000Z", "status": "placed", "complete": false}
+----------------------------------------
+Resultado: PASS 09
+

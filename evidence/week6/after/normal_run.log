@@ -1,0 +1,17 @@
+Configurando permisos de ejecución en scripts...
+OK: Entorno de scripts preparado
+
+========================================
+Ejecutando Quality Gate - Semana 5
+========================================
+
+→ Limpiando contenedores y volúmenes previos...
+→ Check 1: SUT arriba + healthcheck
+→ Esperando healthcheck (máx 120s)...
+→ Check 2: Contrato OpenAPI accesible
+→ Check 3: Casos sistemáticos Semana 4
+
+========================================
+ERROR: Quality Gate FALLÓ ✗
+Revisa evidence/week5/SUMMARY.md y RUNLOG.md
+========================================

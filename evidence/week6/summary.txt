@@ -1,0 +1,5 @@
+# Gaming Drill - Semana 6
+Fecha/Hora: 2026-02-19 22:25:15
+
+=== BEFORE (gate vulnerable) ===
+→ Ejecutando gate (normal_before)...

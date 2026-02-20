@@ -1,0 +1,7 @@
+TC-03: Quantity límite superior razonable
+HTTP Code: 200
+Payload enviado:
+{"petId": 1, "quantity": 999999, "shipDate": "2026-03-01T10:00:00.000Z", "status": "placed", "complete": false}
+----------------------------------------
+Resultado: PASS 03
+

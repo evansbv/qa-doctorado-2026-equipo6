@@ -46,12 +46,15 @@ help:
 	@echo "  quality-gate-only - Solo correr el quality gate (sin levantar automáticamente el SUT)"
 	@echo "  QA-week5-summary - Ejecutar quality gate + mostrar summary inmediatamente después"
 	@echo ""
+	@echo ""
+	@echo "Gaming Drill - Semana 6:"
+	@echo "  gaming-drill    - Ejecutar Gaming Drill completo"
+	@echo "  clean-week6     - Eliminar evidencias temporales de week6"
 
 # Configuración inicial
 setup:
 	@echo "Configurando permisos de ejecución en scripts..."
-	@chmod +x setup/*.sh scripts/*.sh 2>/dev/null || true
-	@chmod +x ci/run_quality_gate.sh
+	@chmod +x setup/*.sh scripts/*.sh ci/*.sh 2>/dev/null || true
 	@echo "OK: Entorno de scripts preparado"
 
 # Gestión del SUT (usando el script principal)
@@ -197,3 +200,36 @@ QA-week5-summary: QA-week5
 	@echo ""
 	@echo "Resumen más reciente de Quality Gate:"
 	@ls -t evidence/week5/SUMMARY.md | head -1 | xargs cat
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Semana 6 - Gaming Drill
+# ────────────────────────────────────────────────────────────────────────────────
+
+gaming-drill: setup
+	@echo ""
+	@echo "========================================"
+	@echo "Ejecutando Gaming Drill - Semana 6"
+	@echo "========================================"
+	@echo ""
+	@chmod +x ci/run_gate_gaming_drill.sh
+	@./ci/run_gate_gaming_drill.sh && { \
+		echo ""; \
+		echo "========================================"; \
+		echo "Gaming Drill COMPLETADO ✓"; \
+		echo "Evidencias generadas en evidence/week6/"; \
+		echo "Resumen en evidence/week6/summary.txt"; \
+		echo "========================================"; \
+	} || { \
+		echo ""; \
+		echo "========================================"; \
+		echo "ERROR durante el Gaming Drill ✗"; \
+		echo "Revisa evidence/week6/summary.txt y los logs en before/after/"; \
+		echo "========================================"; \
+		exit 1; \
+	}
+
+# Opcional: target para limpiar evidencias de week6
+clean-week6:
+	@echo "Limpiando evidencias de Semana 6..."
+	@rm -rf evidence/week6/* 2>/dev/null || true
+	@echo "OK: Limpieza completada"	

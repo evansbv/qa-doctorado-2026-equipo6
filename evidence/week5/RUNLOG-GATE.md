@@ -1,4 +1,4 @@
-# Quality Gate Run - 2026-02-11 23:30:03
+# Quality Gate Run - 2026-02-19 22:25:15
 ## Ejecución completa
 
 → Limpiando contenedores y volúmenes previos...
@@ -13,16 +13,8 @@ Healthcheck OK
 HTTP 200 + clave 'openapi' presente (ver openapi.json)
 
 → Check 3: Casos sistemáticos Semana 4
+Exit code del script: 0
 - **Casos Sistemáticos**: FAIL
-Al menos un caso falló (ver systematic_summary.txt)
+Integridad rota: falta o número incorrecto de TOTAL_CASOS_EJECUTADOS:14
 
-→ Check 4: Robustez entradas inválidas
-- **Robustez Inválidos**: FAIL
-No se detectaron rechazos 4xx esperados
-
-→ Check 5: Repetibilidad
-- **Repetibilidad**: PASS
-Segunda ejecución consistente
-
-
-Quality Gate **PASSED** ✓ - 2026-02-11 23:30:03
+Defensa anti-gaming activada: contador de casos no encontrado o incorrecto

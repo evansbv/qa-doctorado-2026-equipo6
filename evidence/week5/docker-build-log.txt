@@ -1,4 +1,4 @@
-time="2026-02-11T23:30:08-04:00" level=warning msg="/home/evansbv/qa-doctorado-2026-equipo6/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-02-19T22:25:19-04:00" level=warning msg="/home/evansbv/qa-doctorado-2026-equipo6/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
  Network qa-doctorado-2026-equipo6_default Creating 
  Network qa-doctorado-2026-equipo6_default Created 
  Container petstore-api Creating 

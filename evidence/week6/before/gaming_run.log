@@ -1,0 +1,20 @@
+Configurando permisos de ejecución en scripts...
+OK: Entorno de scripts preparado
+
+========================================
+Ejecutando Quality Gate - Semana 5
+========================================
+
+→ Limpiando contenedores y volúmenes previos...
+→ Check 1: SUT arriba + healthcheck
+→ Esperando healthcheck (máx 120s)...
+→ Check 2: Contrato OpenAPI accesible
+→ Check 3: Casos sistemáticos Semana 4
+→ Check 4: Robustez entradas inválidas
+→ Check 5: Repetibilidad
+Quality Gate **PASSED** ✓ - 2026-02-19 21:45:40
+
+========================================
+OK: Quality Gate PASSED ✓
+Evidencias generadas en evidence/week5/
+========================================
