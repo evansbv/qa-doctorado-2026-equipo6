@@ -1,4 +1,4 @@
-Ejecución de casos sistemáticos - vie 20 feb 2026 17:11:54 -04
+Ejecución de casos sistemáticos - vie 20 feb 2026 17:09:54 -04
 Endpoint: http://localhost:8080/api/v3/store/order
 ----------------------------------------
 Resultado: PASS 01

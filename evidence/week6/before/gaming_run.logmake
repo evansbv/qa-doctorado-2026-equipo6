@@ -10,9 +10,11 @@ Ejecutando Quality Gate - Semana 5
 → Esperando healthcheck (máx 120s)...
 → Check 2: Contrato OpenAPI accesible
 → Check 3: Casos sistemáticos Semana 4
+Copiando casos sistemáticos de week4...
+Casos Sistemáticos FAIL Al menos un caso falló (ver systematic_summary.txt)
 → Check 4: Robustez entradas inválidas
 → Check 5: Repetibilidad
-Quality Gate **PASSED** ✓ - 2026-02-20 16:53:50
+Quality Gate **PASSED** ✓ - 2026-02-20 16:35:29
 
 ========================================
 OK: Quality Gate PASSED ✓

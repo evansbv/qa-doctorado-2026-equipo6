@@ -1,7 +1,0 @@
-TC-12: petId inexistente
-HTTP Code: 200
-Payload enviado:
-{"petId": 999999, "quantity": 5, "shipDate": "2026-03-01T10:00:00.000Z", "status": "placed", "complete": false}
-----------------------------------------
-Resultado: PASS 12
-

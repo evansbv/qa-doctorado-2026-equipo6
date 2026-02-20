@@ -12,7 +12,7 @@ EVIDENCE_DIR="evidence/week4"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 mkdir -p "$EVIDENCE_DIR"
 
-SUMMARY_FILE="$EVIDENCE_DIR/summary_${TIMESTAMP}.txt"
+SUMMARY_FILE="$EVIDENCE_DIR/systematic_summary.txt"
 > "$SUMMARY_FILE"
 
 echo "Ejecución de casos sistemáticos - $(date)" | tee -a "$SUMMARY_FILE"
@@ -31,9 +31,9 @@ run_case() {
 
     total_cases=$((total_cases + 1))
 
-    local log_file="$EVIDENCE_DIR/tc_${tc_id}_log_${TIMESTAMP}.txt"
-    local response_file="$EVIDENCE_DIR/tc_${tc_id}_response_${TIMESTAMP}.json"
-    local http_code_file="$EVIDENCE_DIR/tc_${tc_id}_http_code_${TIMESTAMP}.txt"
+    local log_file="$EVIDENCE_DIR/tc_${tc_id}_log.txt"
+    local response_file="$EVIDENCE_DIR/tc_${tc_id}_response.json"
+    local http_code_file="$EVIDENCE_DIR/tc_${tc_id}_http_code.txt"
 
     echo "TC-${tc_id}: $description" > "$log_file"
 

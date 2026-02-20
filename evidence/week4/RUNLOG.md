@@ -51,7 +51,7 @@ FAIL: 2
 Porcentaje PASS: 85%
 Evidencia completa en: evidence/week4/
 
-**Resumen de resultados (de summary_*.txt):**
+**Resumen de resultados (de systematic_summary.txt):**
  - Total casos ejecutados: 14
  - PASS: 12
  - FAIL: 2 (TC-10: shipDate formato inválido; TC-13: petId tipo erróneo)
@@ -62,9 +62,9 @@ Evidencia completa en: evidence/week4/
  - Todos los casos generaron respuesta JSON válida (R2 siempre PASS).
  - No hubo timeouts ni errores de conexión.
 **Evidencias generadas por caso (en evidence/week4/):**
- - tc_XX_log_TIMESTAMP.txt: descripción, payload, HTTP code, resultado pass/fail
- - tc_XX_response_TIMESTAMP.json: cuerpo JSON de respuesta
- - tc_XX_http_code_TIMESTAMP.txt: solo código HTTP
+ - tc_XX_log.txt: descripción, payload, HTTP code, resultado pass/fail
+ - tc_XX_response.json: cuerpo JSON de respuesta
+ - tc_XX_http_code.txt: solo código HTTP
  - summary_TIMESTAMP.txt: resumen global PASS/FAIL
 **Oráculos aplicados:**
  - R1 (código HTTP): aplicado en todos (esperado 200 para la mayoría).

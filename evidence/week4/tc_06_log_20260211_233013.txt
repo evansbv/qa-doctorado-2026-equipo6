@@ -1,7 +1,0 @@
-TC-06: Status approved
-HTTP Code: 200
-Payload enviado:
-{"petId": 1, "quantity": 5, "shipDate": "2026-03-01T10:00:00.000Z", "status": "approved", "complete": false}
-----------------------------------------
-Resultado: PASS 06
-

@@ -143,7 +143,7 @@ week4-evidence: week4-cases
 	@echo "OK: Casos sistemáticos ejecutados"
 	@echo "OK: Evidencias generadas en evidence/week4/"
 	@echo "Resumen más reciente:"
-	@ls -t evidence/week4/summary_*.txt | head -1 | xargs cat
+	@ls -t evidence/week4/systematic_summary.txt | head -1 | xargs cat
 	@echo "========================================"
 
 clean-week4:
