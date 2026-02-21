@@ -1,6 +1,7 @@
 # Evaluación de Propuesta - Equipo  6
 **Propuesta evaluada:** A — Empresa: Q-Edge Consulting  
 **Veredicto:** Aceptar con condiciones
+
 **Participantes:**
   - EVANS BALCAZAR VEIZAGA  
   - JORGE MARCELO ROSALES FUENTES  
