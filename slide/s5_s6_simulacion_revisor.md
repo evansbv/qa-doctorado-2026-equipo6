@@ -8,7 +8,7 @@
 ---
 
 ## Slide 1 — Qué ofrece la propuesta (solo hechos del texto)
-- Objetivo declarado: “Programa integral para establecer control de calidad continuo en el sistema del cliente [...] acelerar la adopción y asegurar que el gate sea operativo rápidamente.”  
+- Objetivo declarado: “Programa integral para establecer control de calidad continuo en el sistema del cliente , acelerar la adopción y asegurar que el gate sea operativo rápidamente.”  
   **Referencia:** Sección 1) Resumen ejecutivo
 
 - Alcance / exclusiones (2+ puntos):
