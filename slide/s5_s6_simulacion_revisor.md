@@ -2,6 +2,7 @@
 **Propuesta evaluada:** A — Empresa: Q-Edge Consulting  
 **Veredicto:** Aceptar con condiciones
 
+
 **Participantes:**
   - EVANS BALCAZAR VEIZAGA  
   - JORGE MARCELO ROSALES FUENTES  
@@ -104,8 +105,7 @@
 ### C) Preguntas de aclaración al proveedor (2-4 preguntas)
 - P1: ¿Qué porcentaje aproximado de flujos críticos esperan cubrir con los 6–10 escenarios y 2 objetos profundizados?
 - P2: En caso de líder técnico sin autoridad real o baja participación, ¿qué plan de mitigación proponen?
-- P3: ¿Pueden compartir ejemplo real (anonimizado) de gate 3/4 con calibración final de umbrales tras 4–8 semanas?
-- P4: ¿Ofrecen soporte opcional post-8 semanas (retainer, horas de escalabilidad) y a qué costo aproximado?
+- P3: ¿Ofrecen soporte opcional post-8 semanas (retainer, horas de escalabilidad) y a qué costo aproximado?
 
 ---
 
