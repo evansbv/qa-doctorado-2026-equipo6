@@ -1,6 +1,12 @@
 # Evaluación de Propuesta - Equipo  6
 **Propuesta evaluada:** A — Empresa: Q-Edge Consulting  
 **Veredicto:** Aceptar con condiciones
+**Participantes:**
+  - EVANS BALCAZAR VEIZAGA  
+  - JORGE MARCELO ROSALES FUENTES  
+  - MARCELO CORDERO FLORES  
+  - SHIRLEY EULALIA PEREZ DELGADILLO  
+**Fecha**: 21 de febrero de 2026
 
 > Regla: Todo punto debe estar **respaldado por la propuesta**.
 > Si algo no está en la propuesta, debe ir en "Vacíos" o "Preguntas", no como afirmación.
