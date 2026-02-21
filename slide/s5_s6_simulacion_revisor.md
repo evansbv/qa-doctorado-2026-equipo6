@@ -7,6 +7,7 @@
   - JORGE MARCELO ROSALES FUENTES  
   - MARCELO CORDERO FLORES  
   - SHIRLEY EULALIA PEREZ DELGADILLO  
+  
 **Fecha**: 21 de febrero de 2026
 
 > Regla: Todo punto debe estar **respaldado por la propuesta**.
