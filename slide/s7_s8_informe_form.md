@@ -19,55 +19,77 @@
 - Enfoque: Hallazgos con respaldo académico (papers 2023-2026), tendencias actuales y límites.
 
 ## Slide 2: Alcance del Tema
-- **Qué cubre**: Generación de casos con LLMs/GenAI, selección/optimización de suites con ML, priorización basada en riesgo con RL; integración en CI/CD; risk-based testing.  
-- **Qué no cubre**: AI en auditorías de procesos QA, testing de hardware o ética AI general no aplicada a testing.  
+- **Qué cubre**:
+  Generación de casos con LLMs/GenAI (Genera casos enfocados en escenarios críticos), que contemplará lo siguiente:
+      a) Integrado dentro de políticas formales.
+      b) Documentado según estándares de ingeniería.
+      c) Con validación humana obligatoria (control de calidad).
+
+  Selección/optimización de suites con Machine Learning (ML), que contemplará lo siguiente:
+      a) Debe alinearse a metodologías estándar de desarrollo.
+      b) Requiere control de versiones y documentación técnica.
+
+  Priorización basada en riesgo con Reinforcement Learning (RL), que contemplará lo siguiente:
+      a) Debe garantizar integridad y validez de información.
+      b) No puede alterar datos productivos sin autorización formal.
+      c) Se debe priorizar lo controles para resguardar la integridad de los activos de información.
+
+  Integración en Continuous Integration/Continuous Deployment (CI/CD), que contemplará lo siguiente:
+      a) Debe respetar segregación de ambientes.
+      b) Pruebas solo en entornos controlados.
+      c) Migración con plan documentado.
+
+  Risk-based testing, que contemplará lo siguiente:
+      a) Las pruebas se diseñan, seleccionan y priorizan según el nivel de riesgo asociado al sistema o funcionalidad.
+  
+- **Qué no cubre**: AI en auditorías de procesos QA, testing de hardware o ética AI general no aplicada a testing, análisis de vulnerabilidades técnicas o pruebas de ethical hacking.  
 - Tendencias 2024-2026: GenAI reduce esfuerzo en generación de tests ~50-70%; ML mejora cobertura 20-40%; RL optimiza detección temprana en CI (APFD +15-25%).
 
 ## Slide 3: Metodología Aplicada
-- Recolectadas >30 fuentes nuevas vía búsquedas web (académicas: arXiv, IEEE, ACM; estándares: NIST, OWASP; industriales). Seleccionadas 15 por relevancia, diversidad y actualidad (2023-2025).  
-- Matriz de evidencia con respaldo ≥2 fuentes por hallazgo.  
-- Síntesis: 6 hallazgos clave expandidos con datos cuantitativos, pros/contras y justificaciones.  
-- Evaluación: Calidad síntesis, evidencia coherente, relevancia trends, inclusión de riesgos/gobernanza.
+- Recolectadas > Se verificó 30 fuentes nuevas vía búsquedas web (académicas: arXiv, IEEE, ACM; estándares: NIST, OWASP; industriales), de la cual se seleccionó 15 por relevancia, diversidad y actualidad (2023-2025), siendo que la estrategia metodológica se basó en revisión sistemática con criterios de inclusión (actualidad, validez empírica, impacto cuantitativo) y exclusión (artículos sin evaluación experimental), lo que nos generó un esquema de desarrollo e implementación de sistemas que considere los resultados de un análisis y evaluación de riesgos en seguridad de la información.
+- Matriz de evidencia con respaldo ≥2 fuentes por hallazgo, en la cual se aplicó la triangulación académica para evitar sesgos de fuente única, donde cada afirmación clave (ej. reducción de esfuerzo) está sustentada en al menos dos estudios independientes, aspecto que viene alineado a una metodologías estándar en ingeniería de software que incluyen la documentación formal y trazabilidad técnica.  
+- Síntesis: 6 hallazgos clave expandidos con datos cuantitativos, pros/contras y justificaciones, la cual no se limita a beneficios técnicos, sino que incorpora impacto operativo, costos, riesgos y requerimientos de gobernanza (normativa vigente y políticas internas).
+- Evaluación: Calidad síntesis, evidencia coherente, relevancia trends, inclusión de riesgos/gobernanza, donde se evaluó cada hallazgo bajo criterios de robustez empírica, aplicabilidad en entornos financieros y cumplimiento regulatorio.
 
 ## Slide 4: Hallazgo 1 - Generación Automática con GenAI/LLMs (Ampliado)
-- LLMs generan casos desde requisitos NL, cubriendo edge cases; precisión 70-85% en benchmarks, reduciendo esfuerzo manual 50-70% en dominios como automotriz y web apps. Estudios muestran integración con mutation testing para mejorar detección de bugs (e.g., MuTAP framework).  
-- Impacto: Acelera ciclos; efectivo en unit/system testing, con mejoras en cobertura hasta 30% en escenarios complejos.  
+- LLMs generan casos desde requisitos NL, cubriendo edge cases; precisión 70-85% en benchmarks, reduciendo esfuerzo manual 50-70% en dominios como automotriz y web apps, ya que estos estudios muestran integración con mutation testing para mejorar detección de bugs (MuTAP framework).  
+- Impacto: Acelera ciclos; efectivo en unit/system testing, con mejoras en cobertura hasta 30% en escenarios complejos, fortalececiendo controles automatizados que minimicen errores en procesamiento, que exige inclusión de controles de seguridad consensuados con áreas involucradas.  
 - Riesgos: Hallucinations, overfitting a patrones; requiere validación humana.  
 - Pros: Velocidad y escalabilidad; Contras: Dependencia de prompts y datos de entrenamiento, con tasas de error ~15-20%.  
 - **Justificación de Selección**: Elegido por su alineación con chats sobre GenAI en testing (e.g., diferencias testing/QA, SUT). Impacto práctico alto en automatización inicial, respaldado por revisiones sistemáticas (2023-2025) que confirman tendencias en NLP para requisitos.
 
 ## Slide 5: Hallazgo 2 - Selección y Optimización de Suites con ML (Ampliado)
-- ML (clustering, heuristics) reduce suites redundantes; mejora cobertura 20-40% sin ejecutar todo, usando técnicas como swarm intelligence para hiperparámetros. Revisión de 43 papers (2018-2023) destaca enfoques híbridos con deep learning para optimización.  
-- Impacto: Eficiencia en CI/CD; reduce tiempo de testing ~30%, alineado con combinatorial testing NIST.  
-- Riesgos: Bias en datos históricos; gobernanza: Monitoreo fairness con métricas adaptativas.  
+- ML (clustering, heuristics) reduce suites redundantes; mejora cobertura 20-40% sin ejecutar todo, usando técnicas como swarm intelligence para hiperparámetros. Revisión de 43 papers (2018-2023) destaca enfoques híbridos con deep learning para optimización, sin embargo, la reducción automatizada debe documentar criterios de exclusión y mantener trazabilidad.  
+- Impacto: Eficiencia en CI/CD; reduce tiempo de testing ~30%, alineado con combinatorial testing NIST, pero la ejecución de estas optimizaciones debe realizarse en ambientes separados (desarrollo/prueba/producción).  
+- Riesgos: Bias en datos históricos; gobernanza: Monitoreo fairness con métricas adaptativas, siendo que las mismas generan planes de acción relacionadas a la verificación periódica de información procesada..  
 - Pros: Reducción costos; Contras: Overhead inicial de entrenamiento ~2-3x en legacy systems.  
-- **Justificación de Selección**: Seleccionado por relevancia a chats sobre combinatorial testing y quality gates. Alto impacto en optimización, justificado por estudios comprehensivos (2024-2025) que abordan redundancias en suites grandes.
+- **Justificación de Selección**: Relevante para optimización en grandes sistemas financieros donde la ejecución total de pruebas es costosa.
 
 ## Slide 6: Hallazgo 3 - Priorización Basada en Riesgo con RL (Ampliado)
-- RL prioriza tests por probabilidad de fallo (historial, cambios código); mejora APFD 15-25% en CI, con enfoques como LLEed K-means clustering y attention transfer para estabilidad. Meta-DRL optimiza en entornos CI.  
-- Impacto: Detección temprana; RETECS aprende feedback real-time, reduciendo fallos en producción ~20%.  
+- RL prioriza tests por probabilidad de fallo (historial, cambios código), mejorando APFD 15-25% en CI, con enfoques como LLEed K-means clustering y attention transfer para estabilidad. Meta-DRL optimiza en entornos CI, proceso que exige una evaluación de riesgos como base del desarrollo.  
+- Impacto: Detección temprana; RETECS aprende feedback real-time, reduciendo fallos en producción ~20%, pero tomando en cuenta que se debe evitar el acceso directo a producción por parte de desarrolladores o testers.  
 - Riesgos: Overfitting; gobernanza: Validación cruzada y dynamic priority factors.  
 - Pros: Adaptabilidad; Contras: Complejidad implementación, requiriendo expertise RL.  
-- **Justificación de Selección**: Basado en chats sobre risk-based testing. Seleccionado por su capacidad adaptativa, respaldado por papers recientes (2023-2025) que demuestran mejoras en APFD vs. métodos tradicionales.
+- **Justificación de Selección**: Elegido por su capacidad de integrar análisis de riesgo cuantitativo en testing, alineándose directamente con exigencias regulatorias de análisis de riesgos en seguridad.
 
 ## Slide 7: Hallazgo 4 - Integración en Pipelines DevOps/CI/CD (Ampliado)
-- AI habilita self-healing, anomaly detection; GenAI genera/maintiene scripts, optimizando CI/CD con ML para predictive maintenance. Revisiones de 50 works (2023-2025) destacan agentic automation y MLOps.  
+- AI habilita self-healing, anomaly detection; GenAI genera/maintiene scripts, optimizando CI/CD con ML para predictive maintenance. Revisiones de 50 works (2023-2025) destacan agentic automation y MLOps, siendo que en el proceso opearativo debe existir separación estricta de ambientes y segregación de funciones.  
 - Impacto: Reduce flakes; mejora quality gates, con DORA metrics mejorados (e.g., deployment frequency +30%).  
-- Riesgos: Gaming métricas; gobernanza: Audits (ISO 42001) y policy-as-code.  
+- Riesgos: Gaming métricas; gobernanza: Audits (ISO 42001) y policy-as-code, resaltando que debe existir una autorización formal para parches conforme.  
 - Pros: Escalabilidad; Contras: Costos tools y vendor lock-in.  
-- **Justificación de Selección**: Alineado con chats sobre CI/CD y Goodhart’s Law. Elegido por integración práctica, justificado por estudios en DevSecOps (2024-2025) que enfatizan seguridad y eficiencia.
+- **Justificación de Selección**: Integra innovación con cumplimiento de control interno si se implementa bajo controles formales exigidos
 
 ## Slide 8: Hallazgo 5 - Límites y Riesgos de AI en QA (Ampliado)
 - Introduce bias, opacity, falsos positivos ~20-30%; black-box ML limita explainability, con riesgos como model drift y shadow AI. Sistemas-theoretic approaches destacan non-determinism en LLMs.  
-- Impacto: Residual risk; desafíos éticos (privacy, drift), con adopción barriers como skill gaps.  
-- Riesgos: Dependencia excesiva; gobernanza: Híbrido humano-AI.  
+- Impacto: Residual risk; desafíos éticos (privacy, drift), con adopción barriers como skill gaps, si se usan datos productivos, ya que debe aplicarse enmascaramiento.  
+- Riesgos: Dependencia excesiva; gobernanza: Híbrido humano-AI, generando procesos robuto de acceso al código y modelos debe estar protegido.  
 - Pros: Identifica riesgos ocultos; Contras: Falta creatividad en edge cases no vistos.  
-- **Justificación de Selección**: Derivado de chats sobre límites (e.g., ISTQB). Seleccionado para balancear beneficios, respaldado por SLRs (2023-2025) que analizan capabilities vs. limitations.
+- **Justificación de Selección**: Seleccionado para balancear beneficios, respaldado por SLRs (2023-2025) que analizan capabilities vs. limitations, generando un balance necesario entre beneficios tecnológicos y cumplimiento regulatorio.
 
 ## Slide 9: Hallazgo 6 - Recomendaciones Implementables y Top 5 (Ampliado)
 - Recomendaciones:  
-  1. Iniciar con GenAI para generación + validación humana (Pros: Velocidad; Contras: Hallucinations; implementar con NLP guidelines).  
-  2. Aplicar ML/RL en CI/CD para priorización (Pros: Eficiencia; Contras: Bias mitigation; usar swarm algorithms).  
+  1. Iniciar con GenAI para generación + validación humana (Pros: Velocidad; Contras: Hallucinations; implementar con NLP guidelines), siempre que exista evidencia formal de validación humana, trazabilidad de los prompts utilizados y registro de aprobación antes de su incorporación a ambientes de prueba oficiales.   
+  2. Aplicar ML/RL en CI/CD para priorización (Pros: Eficiencia; Contras: Bias mitigation; usar swarm algorithms), siendo que el modelo de priorización debe considerarse parte del sistema crítico y por tanto se encuentra sujeto a control de cambios, revisión periódica y evaluación de riesgo.  
   3. Adoptar NIST RMF/OWASP para gobernanza (Pros: Compliance; Contras: Overhead; integrar predictive analytics).  
 - **Top 5**:  
   - **3 Ideas Prácticas a Adoptar**:  
@@ -76,8 +98,9 @@
     3. Monitoreo OWASP/NIST para riesgos AI.  
   - **2 Anti-Patrones a Evitar**:  
     1. Ignorar validación humana (hallucinations + bias).  
-    2. Priorizar solo cobertura sin riesgo (Goodhart’s Law).  
-- **Justificación de Selección**: Sintetiza hallazgos previos, basado en chats sobre recomendaciones. Elegido por practicidad, respaldado por papers en adopción (2023-2025) que ofrecen guidelines.
+    2. Priorizar solo cobertura sin riesgo (Goodhart’s Law).
+    Ya que desde la perspectiva de control interno la adopción de marcos como el AI Risk Management Framework del NIST y las          guías del OWASP fortalece la trazabilidad y evidencia de diligencia debida. 
+- **Justificación de Selección**: Estas recomendaciones son seleccionadas porque permiten equilibrar innovación tecnológica con control interno, asegurando que la adopción de IA en QA no comprometa la integridad, trazabilidad, segregación de funciones ni gobernanza exigida en entornos financieros regulados.
 
 ## Slide 10: Matriz de Evidencia
 # Matriz de Evidencia 
@@ -108,7 +131,7 @@
 
 **Bibliografía**: 
 
-# Bibliografía (APA 7)
+# Bibliografía
 
 AlRakban, N. A. (2025). Optimizing Test Case Prioritization - Meta Deep Reinforcement Learning. *IEEE Transactions on Software Engineering*. https://ieeexplore.ieee.org/document/11192317
 
