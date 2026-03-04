@@ -1,13 +1,5 @@
 # Presentación de Hallazgos: IA para QA - Generación, Selección y Priorización de Pruebas
-
-**Participantes:**
-  - EVANS BALCAZAR VEIZAGA  
-  - JORGE MARCELO ROSALES FUENTES  
-  - MARCELO CORDERO FLORES  
-  - SHIRLEY EULALIA PEREZ DELGADILLO   
-**Fecha**: 26 de febrero de 2026  
-**Objetivo**: Síntesis de aplicaciones de IA (GenAI, ML, RL) en QA con evidencia científica, riesgos, gobernanza y recomendaciones prácticas.
-
+ 
 ## Slide 1: Título y Equipo
 - Tema: IA para QA: Generación, Selección y Priorización de Pruebas  
 - Equipo: 
@@ -19,7 +11,15 @@
 - Enfoque: Hallazgos con respaldo académico (papers 2023-2026), tendencias actuales y límites.
 
 ## Slide 2: Alcance del Tema
-- **Qué cubre**:
+**Estado del arte**:
+- El uso de la IA en QA de software ha pasado de métodos heurísticos a modelos de Machine Learning y Sistemas Generativos.
+- Generación de pruebas: inicialmente con algoritmos evolutivos (SBST, EvoSuite) para maximizar cobertura; hoy con NLP y LLMs, que crean casos de prueba desde requisitos o código.
+- Selección de pruebas: de técnicas clásicas de reducción hacia modelos predictivos que analizan cambios, defectos y riesgos; el aprendizaje supervisado permite elegir el subconjunto más eficaz en integración continua.
+- Priorización de pruebas: de estrategias basadas en cobertura hacia modelos inteligentes que ordenan según criticidad, impacto o probabilidad de fallo, optimizando la detección temprana de defectos.
+- Tendencias actuales: integración de pipelines DevOps con sistemas adaptativos y enfoque human-in-the-loop para mitigar riesgos de explicabilidad y relevancia.
+- De todas maneras, se puede afirmar que la IA no reemplaza al ingeniero de pruebas, sino que potencia su capacidad analítica y estratégica, mejorando eficiencia y calidad en entornos complejos y de entrega rápida.
+  
+**Qué cubre**:
   Generación de casos con LLMs/GenAI (Genera casos enfocados en escenarios críticos), que contemplará lo siguiente:
       a) Integrado dentro de políticas formales.
       b) Documentado según estándares de ingeniería.
@@ -42,14 +42,15 @@
   Risk-based testing, que contemplará lo siguiente:
       a) Las pruebas se diseñan, seleccionan y priorizan según el nivel de riesgo asociado al sistema o funcionalidad.
   
-- **Qué no cubre**: AI en auditorías de procesos QA, testing de hardware o ética AI general no aplicada a testing, análisis de vulnerabilidades técnicas o pruebas de ethical hacking.  
-- Tendencias 2024-2026: GenAI reduce esfuerzo en generación de tests ~50-70%; ML mejora cobertura 20-40%; RL optimiza detección temprana en CI (APFD +15-25%).
+**Qué no cubre**: AI en auditorías de procesos QA, testing de hardware o ética AI general no aplicada a testing, análisis de vulnerabilidades técnicas o pruebas de ethical hacking.  
+
+**Tendencias 2024-2026**: GenAI reduce esfuerzo en generación de tests ~50-70%; ML mejora cobertura 20-40%; RL optimiza detección temprana en CI (APFD +15-25%).
 
 ## Slide 3: Metodología Aplicada
-- Recolectadas > Se verificó 30 fuentes nuevas vía búsquedas web (académicas: arXiv, IEEE, ACM; estándares: NIST, OWASP; industriales), de la cual se seleccionó 15 por relevancia, diversidad y actualidad (2023-2025), siendo que la estrategia metodológica se basó en revisión sistemática con criterios de inclusión (actualidad, validez empírica, impacto cuantitativo) y exclusión (artículos sin evaluación experimental), lo que nos generó un esquema de desarrollo e implementación de sistemas que considere los resultados de un análisis y evaluación de riesgos en seguridad de la información.
-- Matriz de evidencia con respaldo ≥2 fuentes por hallazgo, en la cual se aplicó la triangulación académica para evitar sesgos de fuente única, donde cada afirmación clave (ej. reducción de esfuerzo) está sustentada en al menos dos estudios independientes, aspecto que viene alineado a una metodologías estándar en ingeniería de software que incluyen la documentación formal y trazabilidad técnica.  
-- Síntesis: 6 hallazgos clave expandidos con datos cuantitativos, pros/contras y justificaciones, la cual no se limita a beneficios técnicos, sino que incorpora impacto operativo, costos, riesgos y requerimientos de gobernanza (normativa vigente y políticas internas).
-- Evaluación: Calidad síntesis, evidencia coherente, relevancia trends, inclusión de riesgos/gobernanza, donde se evaluó cada hallazgo bajo criterios de robustez empírica, aplicabilidad en entornos financieros y cumplimiento regulatorio.
+- **Recolectadas**: Se verificó 30 fuentes nuevas vía búsquedas web (académicas: arXiv, IEEE, ACM; estándares: NIST, OWASP; industriales), de la cual se seleccionó 15 por relevancia, diversidad y actualidad (2023-2025), siendo que la estrategia metodológica se basó en revisión sistemática con criterios de inclusión (actualidad, validez empírica, impacto cuantitativo) y exclusión (artículos sin evaluación experimental), lo que nos generó un esquema de desarrollo e implementación de sistemas que considere los resultados de un análisis y evaluación de riesgos en seguridad de la información.
+- **Matriz de evidencia**: con respaldo ≥2 fuentes por hallazgo, en la cual se aplicó la triangulación académica para evitar sesgos de fuente única, donde cada afirmación clave (ej. reducción de esfuerzo) está sustentada en al menos dos estudios independientes, aspecto que viene alineado a una metodologías estándar en ingeniería de software que incluyen la documentación formal y trazabilidad técnica.  
+- **Síntesis**: 6 hallazgos clave expandidos con datos cuantitativos, pros/contras y justificaciones, la cual no se limita a beneficios técnicos, sino que incorpora impacto operativo, costos, riesgos y requerimientos de gobernanza (normativa vigente y políticas internas).
+- **Evaluación**: Calidad síntesis, evidencia coherente, relevancia trends, inclusión de riesgos/gobernanza, donde se evaluó cada hallazgo bajo criterios de robustez empírica, aplicabilidad en entornos financieros y cumplimiento regulatorio.
 
 ## Slide 4: Hallazgo 1 - Generación Automática con GenAI/LLMs (Ampliado)
 - LLMs generan casos desde requisitos NL, cubriendo edge cases; precisión 70-85% en benchmarks, reduciendo esfuerzo manual 50-70% en dominios como automotriz y web apps, ya que estos estudios muestran integración con mutation testing para mejorar detección de bugs (MuTAP framework).  
