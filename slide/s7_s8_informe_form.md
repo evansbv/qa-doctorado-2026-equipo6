@@ -1,6 +1,6 @@
 # Presentación de Hallazgos: IA para QA - Generación, Selección y Priorización de Pruebas
  
-## Slide 1: Título y Equipo
+## Slide 1: Título, Equipo, Contexto y propósito
 - Tema: IA para QA: Generación, Selección y Priorización de Pruebas  
 - Equipo: 
     - EVANS BALCAZAR VEIZAGA  
@@ -9,6 +9,24 @@
     - SHIRLEY EULALIA PEREZ DELGADILLO     
 - Fecha: Febrero 26, 2026  
 - Enfoque: Hallazgos con respaldo académico (papers 2023-2026), tendencias actuales y límites.
+  
+**Pregunta guía (1 frase):**  
+¿Cómo pueden las técnicas de inteligencia artificial (GenAI, ML y RL) transformar la generación, selección y priorización de casos de prueba para hacer el QA más eficiente, inteligente y basado en riesgo en entornos ágiles y DevOps?
+
+**Fuentes analizadas:**  
+15 (8 estudios académicos/revisiones sistemáticas 2023–2026, 4 estándares/guías como NIST AI RMF y OWASP Top 10 LLM, 3 fuentes industriales/aplicadas con casos reales)
+
+**Tesis principal (1 frase):**  
+La integración estratégica de IA en QA permite reducir significativamente el esfuerzo manual (50–70 %), mejorar la cobertura y detección temprana de defectos (20–40 % en cobertura, +15–25 % en APFD), pero requiere enfoques híbridos humano-IA y gobernanza robusta para mitigar riesgos como hallucinations, bias y model drift.
+
+**Por qué este tema importa hoy:**  
+En 2026, con la adopción masiva de GenAI en QA (más del 77 % de equipos ya usan o planean usar IA), la presión por ciclos de entrega ultrarrápidos en DevOps/CI/CD y el aumento de complejidad en software (IA-generado incluido), las prácticas tradicionales de testing ya no escalan; la IA es clave para mantener calidad sin sacrificar velocidad, pero mal aplicada genera más ruido que valor (signal-to-noise bottleneck).
+
+**Qué problema de QA/ingeniería aborda:**  
+Aborda el cuello de botella en QA causado por suites de pruebas grandes y redundantes, mantenimiento manual costoso, priorización subjetiva o exhaustiva (run-everything), detección tardía de defectos críticos y falta de escalabilidad en entornos ágiles/DevOps con cambios frecuentes.
+
+**Qué mejora/decisión habilita (1 línea):**  
+Habilita decisiones data-driven y automatizadas que priorizan tests de alto impacto/riesgo, reducen tiempo de ejecución 40–75 %, aceleran feedback en CI/CD y permiten QA más proactivo y eficiente sin comprometer la calidad.
 
 ## Slide 2: Alcance del Tema
 **Estado del arte**:
